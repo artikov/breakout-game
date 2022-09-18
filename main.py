@@ -5,6 +5,8 @@ from paddle import Paddle
 import time
 
 # game screen initialized
+from scoreboard import Scoreboard
+
 screen = Screen()
 screen.bgcolor('black')
 screen.setup(width=600, height=600)
@@ -16,6 +18,9 @@ paddle = Paddle()
 
 # initializing ball object
 ball = Ball()
+
+# initializing scoreboard
+scoreboard = Scoreboard()
 
 screen.listen()
 screen.onkey(paddle.go_left, 'Left')
@@ -32,7 +37,9 @@ while game_is_on:
         ball.bounce_x()
 
     # TEMP check if ball collided with top wall
-    if ball.ycor() > 150: # can use as wall start position
+    if ball.ycor() > 150:
+        scoreboard.upd_score()
+        # can use as wall start position
         ball.bounce_y()
 
     # detect collision with paddle
