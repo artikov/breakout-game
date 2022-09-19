@@ -1,13 +1,12 @@
+import time
 import tkinter as tk
 from turtle import Screen
 from ball import Ball
-from brick import Brick
 from paddle import Paddle
-import time
+from scoreboard import Scoreboard
+from wall import Wall
 
 # game screen initialized
-from scoreboard import Scoreboard
-
 screen = Screen()
 screen.bgcolor('black')
 screen.setup(width=600, height=600)
@@ -23,22 +22,8 @@ ball = Ball()
 # initializing scoreboard
 scoreboard = Scoreboard()
 
-
-# building wall
-def build_wall(y, color):
-    wall_arr = []
-    for x in range(-275, 290, 45):
-        wall_arr.append(Brick(x, y, color))
-    return wall_arr
-
-
-# colors = ["sky blue", "tomato", "lime green","yellow"]
-wall_pos = 150
-wall = build_wall(wall_pos, 'lime green')
-wall2 = build_wall(125, 'green')
-# LOGIC TO CHECK COLLISION WITH BRICK
-print(wall[0].xcor())
-wall[3].goto(-1000, 1000)
+# build wall
+wall = Wall(3)
 
 # listen to keys and move paddle
 screen.listen()
