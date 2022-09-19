@@ -13,10 +13,8 @@ class Paddle(Turtle):
 
     def go_left(self):
         if self.xcor() >= -240:
-            new_x = self.xcor() - 20
-            self.goto(new_x, self.ycor())
+            self.back(20)
 
     def go_right(self):
         if self.xcor() <= 230:
-            new_x = self.xcor() + 20
-            self.goto(new_x, self.ycor())
+            self.forward(20)

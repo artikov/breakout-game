@@ -19,11 +19,5 @@ class Wall:
             color = random.choice(colors)
             for x in range(-275, 290, 45):
                 self.wall_arr.append(Brick(x, self.wall_pos, color))
-        # print(len(self.wall_arr))
         return self.wall_arr
 
-        # -------------------------------------
-
-        # LOGIC TO CHECK COLLISION WITH BRICK
-        # print(wall[0].xcor())
-        # wall[3].goto(-1000, 1000)
